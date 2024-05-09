@@ -1,0 +1,98 @@
+/*https://docs.fileformat.com/web/css/ */
+
+header {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    padding: 10px; /* Padding around the header content */
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif; /* Specify font family */
+    line-height: 1.6; /* Set line height for better readability */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding to the body content */
+}
+
+/* Paragraph Styles */
+p {
+    margin-bottom: 15px; /* Add space between paragraphs */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom CSS for Folium map */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+/* CSS for map legend */
+.maplegend {
+    position: absolute;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 10px;
+    font: 12px/14px Arial, Helvetica, sans-serif;
+    right: 10px;
+    bottom: 20px;
+}
+
+.maplegend .legend-title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.maplegend .legend-scale ul {
+    margin: 0;
+    margin-bottom: 0px;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.maplegend .legend-scale ul li {
+    list-style: none;
+    margin-left: 0;
+    line-height: 16px;
+    margin-bottom: 2px;
+}
+
+.maplegend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 14px;
+    width: 14px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 0px solid #ccc;
+}
+
+.maplegend .legend-source {
+    color: #777;
+    clear: both;
+}
+
+.maplegend a {
+    color: #777;
+}

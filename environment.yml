@@ -3,8 +3,14 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python>=3.9,<=3.12
+  - python>=3.8
   - ipython
+  - jupyter-lab
+  - sphinx
+  - sphinx-rtd-theme
   - sphinxcontrib-bibtex
   - sphinx-book-theme
   - sphinx-copybutton
+  - sphinxcontrib-images
+  - sphinxcontrib-seqdiag
+  - sphinxcontrib-httpdomain
