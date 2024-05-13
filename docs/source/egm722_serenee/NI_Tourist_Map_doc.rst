@@ -1,5 +1,5 @@
 Northern Ireland Tourist Map with Folium
-=====================
+========================================
 
 **Explore Northern Ireland : Tourist Map with Integrated Transportation Hubs, GP Surgeries and Post Codes.**
 
