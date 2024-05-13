@@ -1,5 +1,5 @@
 Northern Ireland Tourist Map with Folium
-========================================
+=====================
 
 **Explore Northern Ireland : Tourist Map with Integrated Transportation Hubs, GP Surgeries and Post Codes.**
 
@@ -101,8 +101,7 @@ Setup
 **Getting Started**
 
 1. Installation of Required Tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~
 To begin the exercises, ensure you have both ``git`` and ``conda`` installed on your computer. Here's a concise guide for installing Git `Creating an account <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>`_ , `GitHub Desktop <https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/setting-up-github-desktop>`_ and `Anaconda <https://docs.anaconda.com/free/anaconda/install/windows/>`_.
 
 2. Download/clone repository
@@ -153,7 +152,6 @@ All these dependencies are included in the provided environment.yml file.
 If you need to update to specific versions, simply use the following command using `pip <https://pypi.org/project/pip/>`_:
 
 .. code-block:: python
-
     pip install python==3.12.3
     pip install folium==0.14.0
 
