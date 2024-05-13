@@ -1,7 +1,7 @@
-NI Tourist Map
+Northern Ireland Tourist Map with Folium
 =====================
 
-**Explore Northern Ireland : Tourist Map with Integrated Transportation Hubs, and GP Surgeries.**
+**Explore Northern Ireland : Tourist Map with Integrated Transportation Hubs, GP Surgeries and Post Codes.**
 
 
 
@@ -11,20 +11,15 @@ NI Tourist Map
 
    <div style="display: flex; justify-content: space-between;">
        <div>
-           <a href="https://github.com/sereneeosman/egm722_serenee" class="github-button" aria-label="Star sereneeosman/egm722_serenee on GitHub" data-show-count="true" data-count-aria-label="# stars on GitHub">Star EGM722</a>
+           <a href="https://github.com/sereneeosman/egm722_serenee" class="github-button" aria-label="Star sereneeosman/egm722_serenee on GitHub" data-show-count="true" data-count-aria-label="# stars on GitHub">Link EGM722</a>
            <script async defer src="https://buttons.github.io/buttons.js"></script>
        </div>
        <div>
-           <a href="https://github.com/sereneeosman/sereneeosman_doc" class="github-button" aria-label="Star sereneeosman/sereneeosman_doc on GitHub" data-show-count="true" data-count-aria-label="# stars on GitHub">Star Documentation</a>
+           <a href="https://github.com/sereneeosman/sereneeosman_doc" class="github-button" aria-label="Star sereneeosman/sereneeosman_doc on GitHub" data-show-count="true" data-count-aria-label="# stars on GitHub">Link Documentation (Optional)</a>
            <script async defer src="https://buttons.github.io/buttons.js"></script>
-       </div>
-       <div>
-           <a href="path/to/your/document.pdf" class="pdf-button" aria-label="Download PDF">Download PDF</a>
        </div>
    </div>
 
-
-:download:`Download PDF <_static/pdf/document_name.pdf>`
 
 
 
@@ -38,8 +33,9 @@ Contents
 Overview
 --------
 
-The "Explore Northern Ireland" script serves as a versatile and convenient tool tailored for anyone exploring Northern Ireland, be it tourists or residents.
-This script creates an interactive map of comprehensive information on tourist sites, nearest transportation hubs (including both bus and train stations), as well as the distances between these transportation hubs and tourist sites. Moreover, it seamlessly integrates General Practitioner (GP) surgeries for emergency services, utilizing postal codes for easy searchability. By combining these features, the script enhances the overall travel experience, prioritizing safety and preparedness throughout every stage of the journey.
+Northern Ireland boasts a rich tapestry of history, culture, and natural beauty, attracting visitors from around the globe. However, navigating its diverse landscapes and accessing essential services can be daunting, especially for newcomers. Recognizing this challenge, I introduced the "Explore Northern Ireland" script, a sophisticated yet user-friendly tool tailored to facilitate exploration and enhance safety throughout the journey.
+The "Explore Northern Ireland" script serves as a versatile and convenient tool tailored for anyone exploring Northern Ireland, be it tourists or residents. This script creates an interactive map of comprehensive information on tourist sites, nearest transportation hubs (including both bus and train stations), as well as the distances between these transportation hubs and tourist sites as popups. Moreover, it seamlessly integrates General Practitioner (GP) surgeries for emergency services, utilizing postal codes for easy searchability. By combining these features, the script enhances the overall travel experience, prioritizing safety, and preparedness throughout every stage of the journey.
+
 
 .. raw:: html
 
@@ -79,7 +75,7 @@ In the data_file folder,contains are as follows:
 
 - ``NI_PostCodes_GP.geojson``, a GeoJSON file contain GP surgery information with postal codes in Northern Ireland.
 
-- ``NI_Tourist_trans_GP_Dist.csv``,a csv file with information about nearest Transport Hub and Nearest GP surgery information.
+- ``NI_Tourist_trans_GP_Dist.csv``,a csv file with information about nearest Transport Hub and Nearest GP surgery informatio to “Tourist_Sites”.
 
 The script  **Integrated_Data_Analysis.ipynb/ .py** outline the  process of ``Re-Projection``, ``Polygon Clipping``, and the creation of ``NI_Costal_spots.geojson`` file, ``NI_Costal_spots.geojson``, ``NI_PostCodes_GP.geojson`` and ``NI_Tourist_trans_GP_Dist.csv`` files. To execute the script,  ensure you download the specified files into the **data_files/download_data** folder. Remember to extract shapefiles from **.zip** archives before use.
 
@@ -102,7 +98,9 @@ The script  **Integrated_Data_Analysis.ipynb/ .py** outline the  process of ``Re
 Setup
 -----
 
-1. Getting Started
+**Getting Started**
+
+1. Installation of Required Tools
 ~~~~~~~~~~~~~~~~~~
 To begin the exercises, ensure you have both ``git`` and ``conda`` installed on your computer. Here's a concise guide for installing Git `Creating an account <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>`_ , `GitHub Desktop <https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/setting-up-github-desktop>`_ and `Anaconda <https://docs.anaconda.com/free/anaconda/install/windows/>`_.
 
@@ -142,11 +140,28 @@ Then, execute the command
 
 This action should open a web browser window, providing an overview of the current folder.
 
-## 5. Repository Structure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5. Dependencies
+~~~~~~~~~~~~~~~~
+To run the "Explore Northern Ireland" script, you'll need the following dependencies:
+
+- Python (>=3.9, <=3.12)
+- Folium
+- Pandas
+
+All these dependencies are included in the provided environment.yml file.
+If you need to update to specific versions, simply use the following command using `pip <https://pypi.org/project/pip/>`_:
+
+.. code-block:: python
+    pip install python==3.12.3
+    pip install folium==0.14.0
+
+6. Repository Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * ``NI_TouristMap.ipynb`` :This file contains the main code for creating a tourist map. It serves as the primary navigation point for executing the code related to the creation of the tourist map.
 * ``Integrated_Data_Analysis.ipynb/.py`` :This file demonstrates how to integrate downloaded data and perform analysis on it. It provides insights into the process of combining different datasets and conducting analysis tasks, available both in Jupyter Notebook (.ipynb) and Python script (.py) formats.
+* ``NI_Tourist_Map_doc.rst`` :  This file contain the complete Documentation of this code.
+* ``NI_TouristMap_numpy.py`` : document containing documentation formatted in NumPy docstring style.
 
 Getting Started
 ----------------
@@ -241,7 +256,7 @@ Display the base folium map
 
 As depicted, a color legend is incorporated at the bottom right-hand corner of the map, providing information on the colors assigned to each polygon. Additionally, a scale is situated at the bottom left-hand corner of the map. The country outline of Northern Ireland is displayed with black border lines.You can zoom in or out to examine finer details, including those on the [OpenStreetMap](https://www.openstreetmap.org/#map=5/35.588/134.380) base layer.
 
-**Convert DataFrame to GeoDataFrame**
+**Convert DataFrame to GeoDataFrame, Display Popups and Plotting Geographic Data (Tourist Sites)**
 
 Convert csv data to vector data
 
@@ -308,6 +323,8 @@ This code creates a new GeoDataFrame named "visit_geo" by selecting specific col
 
 .. code-block:: python
 
+    # Create a new GeoDataFrame with specified columns
+    # Check the Head of result
     visit_filter = merge_site[["Tourist Sites", "Near_T_Hub","Trans_Dist","Near_GP", "GP_Dist","PostCode","geometry"]]
     visit_geo = gpd.GeoDataFrame(visit_filter)
     visit_geo.head()
@@ -323,12 +340,14 @@ The ``.sjoin`` (`Documentation <https://geopandas.org/en/stable/docs/reference/a
 
 .. code-block:: python
 
+    # Merge Two GeoDataFrames to attach county name
     visit_merge = gpd.sjoin(visit_geo,counties,how="inner")
 
 To verify the results ``.head()`` function used to retrieve the first few rows (usually the top 5 rows) GeoDataFrame of "visit_merge". It provides a quick preview of the data contained within the GeoDataFrame.
 
 .. code-block:: python
 
+    # Check the Head 
     visit_merge.head()
 
 You will see result GeoDatFrame contain both columns of the "Counties" file and "visit_geo" file.
@@ -340,8 +359,11 @@ Then displays the first few rows of the resulting GeoDataFrame ("visit_all").
 
 .. code-block:: python
 
+    # Re-filtered the merge file.
     visit_all = visit_merge[["Tourist Sites", "Near_T_Hub","Trans_Dist","Near_GP", "GP_Dist","PostCode","geometry","CountyName"]]
     visit_all.head()
+
+Display Popups and Plotting Geographic Data (Tourist Sites)
 
 Next we will display the GeoDataFrame on the folium map and popup the attribute information.
 
@@ -355,6 +377,7 @@ The ``.explore`` (`Documents <https://geopandas.org/en/stable/docs/reference/api
 
 .. code-block:: python
 
+    # Display Created GeoDataframe on the base Map
     visit_all.explore("CountyName", # show the CountyName column
                     cmap="gist_rainbow", # use the "hsv" colormap from matplotlib
                     m=m, # set the base folium.map
@@ -362,7 +385,7 @@ The ``.explore`` (`Documents <https://geopandas.org/en/stable/docs/reference/api
                     legend = False, #Don`t display a separated legend.
     )
 
-Adding Coastline visit spots into Folium map
+**Adding Coastline visit spots into Folium map**
 
 The code reads a GeoJSON file named "NI_Coastal_spots.geojson" using the GeoPandas ``read_file`` (`Documents <https://geopandas.org/en/stable/docs/reference/api/geopandas.read_file.html>`_)function.
 
@@ -392,6 +415,7 @@ This code snippet defines a dictionary named coastline_args containing parameter
 
 .. code-block:: python
 
+    # Assign Marker Parameters
     coastalpt_args = {
         "m": m, # specifies the folium map (m)
         "marker_type": "marker", #specifies the type of marker
@@ -411,13 +435,17 @@ The ``.explore()`` visualizes the "coastalpt" GeoDataFrame on the folium map, us
     # Display the "coastalpt" Marker on the folium map with the customized marker dictionary
     coastalpt.explore ("Name", **coastalpt_args)
 
+
+**Exporting Folium Map**
+
 Save the created folium map (represented by the m object) as an HTML file.
 
-The ``m.save`` command is used to save the current state of a map (represented by the m object) as an HTML file named “NI_tourist_MAP.html”.
+The ``m.save`` (`Documentation <https://python-visualization.github.io/folium/latest/getting_started.html#Creating-a-map>`_) command is used to save the current state of a map (represented by the m object) as an HTML file named “NI_tourist_MAP.html”.
 You can then open this HTML file in a web browser to view the interactive map.
 
 .. code-block:: python
 
+    # Export the Folium Map
     m.save("NI_tourist_MAP.html")
 
 You have successfully generated the tourist map for Northern Ireland.
@@ -445,7 +473,18 @@ If you're encountering any issues or need assistance with troubleshooting, here 
 
 Reference
 ----------
-1. M.Breuss (2024), Python Folium:Create Web Maps From Your Data.Real Python. Available at :`<https://realpython.com/python-folium-web-maps-from-data/>`_
+
+[1.]	Robert, Demeter & Kővári, Attila. (2019). GENERATING TOURISM SPOTS FOR BUDAPEST URBAN AREA. Research Gate . Available at : `<https://www.researchgate.net/figure/Spatial-dataset-and-centers-of-clusters-Source-own-work_fig1_357458695>`_
+[2.]	M.Breuss (2024), Python Folium:Create Web Maps From Your Data. Real Python. Available at : `<https://realpython.com/python-folium-web-maps-from-data/>`_
+[3.]	Kriesch, L.(2024). Interactive choropleth maps with GeoPandas and Folium. Medium. Available at : `<https://medium.com/@lukas.kriesch/interactive-choropleth-maps-with-geopandas-and-folium-2c68e0d91e0e>`_
+[4.]	Oakley, M. (2022) Using Leaflet and Folium to make interactive maps in Python. Earth Lab. Available at : `<https://www.earthdatascience.org/tutorials/introduction-to-leaflet-animated-maps/>`_ [Access date : 29/04/2024]
+[5.]	Ajagbe, S.A. , Oladipupo, M.A. and Emmanuel, B. (2020). CRIME BELT MONITORING VIA DATA VISUALIZATION: A CASE STUDY OF FOLIUM. Research Gate .Available at : `<https://www.researchgate.net/publication/351661740_CRIME_BELT_MONITORING_VIA_DATA_VISUALIZATION_A_CASE_STUDY_OF_FOLIUM.>`_ [Access date : 29/04/2024]
+[6.]	Camara, G., Camboim, S. and Bravo, J.V.M (2021). USING JUPYTER NOTEBOOKS FOR VIEWING AND ANALYSING GEOSPATIAL DATA: TWO EXAMPLES FOR EMOTIONAL MAPS AND EDUCATION DATA. Research Gate ,Available at : `<https://www.researchgate.net/publication/354027216_USING_JUPYTER_NOTEBOOKS_FOR_VIEWING_AND_ANALYSING_GEOSPATIAL_DATA_TWO_EXAMPLES_FOR_EMOTIONAL_MAPS_AND_EDUCATION_DATA>`_
+[7.]	George, Sneha & Seles, Keirolona & Brindha, Duraipandi & Jebaseeli, Theena & Vemulapalli, Laya. (2023). Geopositional Data Analysis Using Clustering Techniques to Assist Occupants in a Specific City. 8. 10.3390/engproc2023059008. Research Gate Available at : `<(PDF) Geopositional Data Analysis Using Clustering Techniques to Assist Occupants in a Specific City (researchgate.net)>`_
+[8.]	Palkovic, M. (2020). Creating an interactive map of wildfire data using Folium in Python. Medium. Available at : `<https://towardsdatascience.com/creating-an-interactive-map-of-wildfire-data-using-folium-in-python-7d6373b6334a>`_
+[9.]	Pras, A. (2022). Creating interactive maps with Python, Folium, and some HTML. Medium. Available at : `<https://levelup.gitconnected.com/creating-interactive-maps-with-python-folium-and-some-html-f8ac716966f>`_
+[10.]	Jawla, Akshay & Singh, Manjot & Hooda, Nishtha. (2020). Crime Forecasting using Folium. Test Engineering and Management. 82. 16235-16240. Research Gate. Available at : `<https://www.researchgate.net/publication/341776530_Crime_Forecasting_using_Folium>`_
+[11.]	Cheng, J. (2018). Around the world with Anthony Bourdain — a Folium tutorial. Medium. Available at : `<https://towardsdatascience.com/around-the-world-with-anthony-bourdain-a-folium-tutorial-7e9ad63fb650>`_
 
 
 
